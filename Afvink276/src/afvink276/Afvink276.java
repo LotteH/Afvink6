@@ -23,16 +23,18 @@ public class Afvink276 extends JFrame implements ActionListener {
      */
     public static void main(String[] args) {
         Afvink276 frame = new Afvink276();
-        frame.setSize(1000, 600);
-        frame.setTitle("VirusGUI");
+        frame.setSize(500, 500);
+        frame.setTitle("DjeeSee Maker");
+        frame.setResizable(false);
         frame.createGUI();
-        frame.show();// TODO code application logic here
+        frame.show();
     }
 
     public void createGUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Container window = getContentPane();
         window.setLayout(new FlowLayout());
+        
     }
 
     @Override
