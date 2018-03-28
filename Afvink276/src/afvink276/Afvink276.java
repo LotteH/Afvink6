@@ -10,6 +10,10 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -25,11 +29,11 @@ public class Afvink276 extends JFrame implements ActionListener {
     // bestand zoeken
     JLabel bestandLabel;
     JButton bladerButton;
-    
+
     //GC percentage
     static JTextField GCField;
     JLabel GCLabel;
-    
+
     /**
      * Methode maakt GUI frame aan.
      */
@@ -53,7 +57,7 @@ public class Afvink276 extends JFrame implements ActionListener {
         //bestand zoeken
         bestandLabel = new JLabel("                         Ouvrez un fichier et lisez-le:                         ");
         window.add(bestandLabel);
-        
+
         bladerButton = new JButton("                         Ouvert                         ");
         bladerButton.addActionListener(this);
         window.add(bladerButton);
@@ -61,13 +65,23 @@ public class Afvink276 extends JFrame implements ActionListener {
         // GC percentage
         GCLabel = new JLabel("GC% =  ");
         window.add(GCLabel);
-        
+
         GCField = new JTextField(10);
         window.add(GCField);
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void actionPerformed(ActionEvent event) {
+        File selectedFile;
+        int reply;
+        String bestand;
+
+        if (event.getSource() == bladerButton) {
+            try {
+                AfvinkLogica.readFile(AfvinkLogica.kiesFile());
+            } catch (IOException ex) {
+                Logger.getLogger(Afvink276.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }
