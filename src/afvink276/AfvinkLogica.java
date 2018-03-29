@@ -26,6 +26,8 @@ public class AfvinkLogica {
         try {
             afvink276.FileReader reader = new afvink276.FileReader();
             reader.readFile(reader.kiesFile());
+            // TODO: gc percentage berekenen en plaatsten in de atribuut in deze class!!!!!!
+            HTMLGenerator generator = new HTMLGenerator();
         } catch (IOException ex) {
             Logger.getLogger(Afvink276.class.getName()).log(Level.SEVERE, null, ex);
         }

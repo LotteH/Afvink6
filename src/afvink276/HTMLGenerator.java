@@ -1,7 +1,9 @@
 package afvink276;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -11,12 +13,13 @@ public class HTMLGenerator {
 
     private float gcPercentage;
 
-    public static void main(String[] args) {
-        HTMLGenerator generator = new HTMLGenerator(50.25f);
-        generator.createHTMLFile();
-    }
-    public HTMLGenerator(float f){
-        this.gcPercentage = f;
+    public HTMLGenerator(){
+        this.gcPercentage = AfvinkLogica.getGcPercentage();
+        try {
+            Desktop.getDesktop().open(new File("gcSite.html"));
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        }
     }
 
     private void createHTMLFile(){
