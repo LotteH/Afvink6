@@ -15,17 +15,12 @@ public class GcBepaler {
     private String resultaat = "";
     private float gc_per;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+
      public String gcBerekenen(String nucSeq){
        for(int i = 0 ; i < nucSeq.length(); i ++) {
          char nuc = nucSeq.charAt(i);
          String nucleotide = Character.toString(nuc);
-          if(nucleotide.toLowerCase()=="g"||nucleotide.toLowerCase()=="c" ){
+          if(nucleotide.toLowerCase().equals("g")||nucleotide.toLowerCase().equals("c") ){
               gc += 1;
                }
           else{

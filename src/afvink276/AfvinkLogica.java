@@ -20,20 +20,22 @@ import javax.swing.JFileChooser;
  */
 public class AfvinkLogica {
 
-    private static float gcPercentage;
+    private static String gcPercentage;
+    private static String seq;
 
     public static void openEnLeesBestand(){
         try {
             afvink276.FileReader reader = new afvink276.FileReader();
-            reader.readFile(reader.kiesFile());
-            // TODO: gc percentage berekenen en plaatsten in de atribuut in deze class!!!!!!
+            seq = reader.readFile(reader.kiesFile());
+            GcBepaler bepaler = new GcBepaler();
+            gcPercentage = bepaler.gcBerekenen(seq);
             HTMLGenerator generator = new HTMLGenerator();
         } catch (IOException ex) {
             Logger.getLogger(Afvink276.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static float getGcPercentage() {
+    public static String getGcPercentage() {
         return gcPercentage;
     }
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class HTMLGenerator {
 
-    private float gcPercentage;
+    private String gcPercentage;
 
     public HTMLGenerator(){
         this.gcPercentage = AfvinkLogica.getGcPercentage();
@@ -40,7 +40,7 @@ public class HTMLGenerator {
         ArrayList<String> htmlArray = new ArrayList<>();
         htmlArray.add("<html>");
         htmlArray.add("<body>");
-        htmlArray.add("<p>"+gcPercentage+"% GC zit er in uw sequentie!</p>");
+        htmlArray.add("<p>"+gcPercentage+"</p>");
         htmlArray.add("</body>");
         htmlArray.add("</html>");
         return htmlArray;

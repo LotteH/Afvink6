@@ -30,9 +30,6 @@ public class Afvink276 extends JFrame implements ActionListener {
     JLabel bestandLabel;
     JButton bladerButton;
 
-    //GC percentage
-    static JTextField GCField;
-    JLabel GCLabel;
 
     /**
      * Methode maakt GUI frame aan.
@@ -62,12 +59,6 @@ public class Afvink276 extends JFrame implements ActionListener {
         bladerButton.addActionListener(this);
         window.add(bladerButton);
 
-        // GC percentage
-        GCLabel = new JLabel("GC% =  ");
-        window.add(GCLabel);
-
-        GCField = new JTextField(10);
-        window.add(GCField);
     }
 
     @Override

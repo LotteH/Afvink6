@@ -10,8 +10,6 @@ import java.util.logging.Logger;
 
 public class FileReader {
 
-    static String[] aRegel;
-
     public static String kiesFile() {
 
         JFileChooser filechooser = new JFileChooser();
@@ -26,8 +24,8 @@ public class FileReader {
         return null;
     }
 
-    public static void readFile(String bestandNaam) throws IOException {
-
+    public static String readFile(String bestandNaam) throws IOException {
+        StringBuilder seq = new StringBuilder();
         try {
             BufferedReader inFile;
             inFile = new BufferedReader(new java.io.FileReader(bestandNaam));
@@ -35,10 +33,12 @@ public class FileReader {
             inFile.readLine();
             while ((line = inFile.readLine()) != null) {
 
-                aRegel = line.split("\t", -1); // -1 zorgt dat hij de lege tabs ook ziet
+                seq.append(line); // -1 zorgt dat hij de lege tabs ook ziet
             }
+            return seq.toString();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AfvinkLogica.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
 }
