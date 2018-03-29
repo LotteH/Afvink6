@@ -20,35 +20,18 @@ import javax.swing.JFileChooser;
  */
 public class AfvinkLogica {
 
-    static String[] aRegel;
+    private static float gcPercentage;
 
-    public static String kiesFile() {
-
-        JFileChooser filechooser = new JFileChooser();
-
-        int reply = filechooser.showOpenDialog(null);
-        if (reply == JFileChooser.APPROVE_OPTION) {
-
-            File selectedFile = filechooser.getSelectedFile();
-            String bestandNaam = selectedFile.getAbsolutePath();
-            return bestandNaam;
+    public static void openEnLeesBestand(){
+        try {
+            afvink276.FileReader reader = new afvink276.FileReader();
+            reader.readFile(reader.kiesFile());
+        } catch (IOException ex) {
+            Logger.getLogger(Afvink276.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
     }
 
-    public static void readFile(String bestandNaam) throws IOException {
-
-        try {
-            BufferedReader inFile;
-            inFile = new BufferedReader(new FileReader(bestandNaam));
-            String line;
-            inFile.readLine();
-            while ((line = inFile.readLine()) != null) {
-
-                aRegel = line.split("\t", -1); // -1 zorgt dat hij de lege tabs ook ziet
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AfvinkLogica.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public static float getGcPercentage() {
+        return gcPercentage;
     }
 }

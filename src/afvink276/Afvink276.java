@@ -77,11 +77,8 @@ public class Afvink276 extends JFrame implements ActionListener {
         String bestand;
 
         if (event.getSource() == bladerButton) {
-            try {
-                AfvinkLogica.readFile(AfvinkLogica.kiesFile());
-            } catch (IOException ex) {
-                Logger.getLogger(Afvink276.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            AfvinkLogica.openEnLeesBestand();
+
         }
     }
 }
